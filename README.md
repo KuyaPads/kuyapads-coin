@@ -1,0 +1,1 @@
+# kuyapads-coin
