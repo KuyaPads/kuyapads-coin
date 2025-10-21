@@ -1,23 +1,91 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-labelledby="title">
-  <title id="title">KuyaPads Coin (KPC) logo placeholder</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" aria-labelledby="title desc" role="img">
+  <title id="title">KPC - Kuyapads Coin</title>
+  <desc id="desc">32x32 optimized coin-style mark with strong readable KPC lettering</desc>
+
   <defs>
-    <linearGradient id="g" x1="0" x2="1">
-      <stop offset="0" stop-color="#0ea5e9"/>
-      <stop offset="1" stop-color="#7c3aed"/>
+    <!-- Gold rim gradient -->
+    <linearGradient id="gGold" x1="0" x2="1">
+      <stop offset="0" stop-color="#f9d65a"/>
+      <stop offset="0.5" stop-color="#f3b83a"/>
+      <stop offset="1" stop-color="#c68a1a"/>
     </linearGradient>
-    <filter id="f" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000" flood-opacity="0.25"/>
+
+    <!-- Darker highlight for rim edge -->
+    <linearGradient id="gRimEdge" x1="0" x2="1">
+      <stop offset="0" stop-color="#e6b63a"/>
+      <stop offset="1" stop-color="#8d5a0d"/>
+    </linearGradient>
+
+    <!-- Blue inner face gradient -->
+    <radialGradient id="gBlue" cx="50%" cy="35%" r="70%">
+      <stop offset="0" stop-color="#1e67b8"/>
+      <stop offset="1" stop-color="#083f76"/>
+    </radialGradient>
+
+    <!-- Gold fill for letters -->
+    <linearGradient id="gLetter" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffd85a"/>
+      <stop offset="1" stop-color="#d09a22"/>
+    </linearGradient>
+
+    <!-- Soft shadow for depth -->
+    <filter id="drop" x="-50%" y="-50%" width="200%" height="200%">
+      <feOffset dx="0" dy="0.4" result="off"/>
+      <feGaussianBlur in="off" stdDeviation="0.6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Strong letter shadow (thin) -->
+    <filter id="letterShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0.8" stdDeviation="0.6" flood-color="#000" flood-opacity="0.55"/>
     </filter>
   </defs>
-  <rect width="100%" height="100%" fill="#0f172a"/>
-  <g transform="translate(512,512)">
-    <circle r="300" fill="url(#g)" filter="url(#f)" />
-    <g transform="translate(-120,-50)">
-      <text x="120" y="40" font-family="Inter, Arial, sans-serif" font-weight="700" font-size="220" fill="#ffffff" text-anchor="middle">KPC</text>
-    </g>
-    <g transform="translate(-120,180)">
-      <text x="120" y="0" font-family="Inter, Arial, sans-serif" font-size="40" fill="#e6e6e6" text-anchor="middle">KuyaPads Coin</text>
+
+  <!-- Transparent background -->
+  <rect width="100%" height="100%" fill="none"/>
+
+  <!-- Rim: two concentric circles to create a pronounced gold ring -->
+  <g filter="url(#drop)">
+    <circle cx="16" cy="16" r="15.2" fill="url(#gGold)" stroke="url(#gRimEdge)" stroke-width="1.6"/>
+    <!-- inner thin bevel -->
+    <circle cx="16" cy="16" r="12.6" fill="none" stroke="#f7d47f" stroke-opacity="0.45" stroke-width="0.7"/>
+  </g>
+
+  <!-- Inner face / globe -->
+  <g transform="translate(0,0)">
+    <circle cx="16" cy="16" r="11.2" fill="url(#gBlue)"/>
+
+    <!-- Simplified continents for the globe (low-detail shapes to keep clarity at 32px) -->
+    <g fill="#08345a" fill-opacity="0.22">
+      <!-- small continent blobs -->
+      <path d="M10.2 12.6c1.1-0.5 2.0-0.3 2.9 0.2 0.8 0.5 1.6 1.6 1.0 2.4-0.6 0.8-1.8 0.8-2.6 0.4-0.8-0.4-1.5-1.3-1.3-2.6z"/>
+      <path d="M20.8 18.0c0.9-0.2 1.6 0 2.2 0.6 0.6 0.6 1.0 1.6 0.4 2.2-0.6 0.6-1.6 0.5-2.3 0.2-0.7-0.3-1.4-0.9-1.1-2.0 0.2-0.8 0.5-1.1 0.8-1.0z"/>
+      <path d="M14.6 14.0c0.5-0.4 1.2-0.6 1.9-0.4 0.7 0.2 1.3 0.8 1.0 1.4-0.3 0.6-1.0 0.8-1.6 0.6-0.6-0.2-1.4-0.8-1.3-1.6z"/>
     </g>
   </g>
+
+  <!-- Large KPC lettering centered and optimized for small sizes -->
+  <!-- Use stroke for contrast, bold weight, tight tracking, and a subtle shadow -->
+  <g filter="url(#letterShadow)" transform="translate(0,0)">
+    <text x="16" y="18.2"
+          text-anchor="middle"
+          font-family="Arial, Helvetica, sans-serif"
+          font-weight="800"
+          font-size="11.2"
+          letter-spacing="-0.08em"
+          fill="url(#gLetter)"
+          stroke="#2b2b2b"
+          stroke-width="0.55"
+          paint-order="stroke"
+          dominant-baseline="middle"
+          style="text-rendering:geometricPrecision;">
+      KPC
+    </text>
+  </g>
+
+  <!-- Optional tiny outer text removed for legibility at 32px.
+       If you need the "KUYAPADS COIN" ring text at larger sizes, provide a larger SVG or separate asset. -->
 </svg>
